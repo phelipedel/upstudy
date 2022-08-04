@@ -1,70 +1,99 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# **UpStudy**
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Up Study is a project I did to facilitate the memorization of some everyday English words, bringing 3 levels of user choice, I didn't want to use a bunch since it was a project just for simple memories, I decided to use a randomization.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+###### the project uses the following dependencies
 
-### `npm test`
+> ```json
+>     "@testing-library/jest-dom": "^5.16.4",
+>     "@testing-library/react": "^13.3.0",
+>     "@testing-library/user-event": "^13.5.0",
+>     "audit": "^0.0.6",
+>     "fix": "^0.0.6",
+>     "react": "^18.2.0",
+>     "react-dom": "^18.2.0",
+>     "react-icons": "^4.4.0",
+>     "react-router-dom": "^6.3.0",
+>     "react-scripts": "5.0.1",
+>     "sweetalert": "^2.1.2",
+>     "using": "^1.0.0-alpha-1",
+>     "web-vitals": "^2.1.4",
+>     "yarn": "^1.22.19"
+> ```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+# **Your randomization body:**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```javascript
+}else {
+  swal("Errou a respostas correta é : " + questions[currentQuestion].repost);
+  
+}
+   
+const randomQuestion = Math.floor(Math.random() * questions.length);
+var newQuestions = randomQuestion
 
-### `npm run eject`
+const nextQuestions = currentQuestion + newQuestions;
+if (nextQuestions < questions.length) {
+  setCurrentQuestion(randomQuestion);
+}
+// soma de acertos e erros
+if(score === questions.length){
+  setCorretos(true);
+} else {
+  setCorretos(false);
+}
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+`
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+-  The code starts by declaring a variable called randomQuestion.
 
-## Learn More
+-  This is the number of questions that will be asked in the quiz.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+-  The next line declares a new question, which is randomly generated and added to the end of the list of questions.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-  The next line sets up an if statement that checks whether or not there are any more correct answers left in the current question.
 
-### Code Splitting
+-  If there are no more correct answers, then it sets true for corretos, otherwise it sets false for corretos.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+-  The code sets the current question to a random number, and then adds that question to the end of the list.
 
-### Analyzing the Bundle Size
+-  If there are less than 10 questions in the list, it will set the current question to be a new random number.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+  
 
-### Making a Progressive Web App
+![mobile](https://cdn.discordapp.com/attachments/968186886055137351/1004842442530500658/mobile.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+##       *The architecture of the questions is very simple*
 
-### Advanced Configuration
+```javascript
+const questions = [
+  {
+    questionsImg: 'https://cdn.discordapp.com/attachments/968187282010042388/1004042534667948162/1.png',
+    answerOpc: [
+      { answerText: 'quase', isCorrect: false },
+      { answerText: 'uma', isCorrect: true },
+      { answerText: 'e', isCorrect: false },
+      { answerText: 'nenhum', isCorrect: false },
+    ],
+    repost: 'uma',
+  },
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+![mobile](https://cdn.discordapp.com/attachments/968186886055137351/1004842440554983534/mobile_2.png)
 
-### Deployment
+![mobile](https://cdn.discordapp.com/attachments/968186886055137351/1004842440890535986/mobile_3.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+![mobile](https://media.discordapp.net/attachments/968186886055137351/1004842441175736442/mobile_4.png?width=310&height=628)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![mobile](https://media.discordapp.net/attachments/968186886055137351/1004842441498701956/mobile_5.png?width=310&height=628)
